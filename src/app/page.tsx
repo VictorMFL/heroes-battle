@@ -3,6 +3,7 @@
 import * as S from "./styles";
 import Card from "@/components/card/Card";
 import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
 import { useHeroesDataContext } from "@/context/data/useHeroesData";
 import { usePaginationContext } from "@/context/pagination/usePagination";
 
@@ -12,6 +13,7 @@ export default function Home() {
   const { visibleCount, initialHero } = usePaginationContext(); // Controla os heróis que vão ser mostrados
   return (
     <>
+      <Header />
       <S.Container>
         {data.slice(initialHero, visibleCount).map((hero) => (
           <Card
