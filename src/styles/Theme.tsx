@@ -18,6 +18,17 @@ const theme = {
     orange03: "#ff8866",
     red01: "#ff2233",
     green01: "#008000",
+    input: {
+      gradient: {
+        start: "rgb(56, 56, 56)",
+        middle: "rgb(36, 36, 36)",
+        end: "rgb(41, 41, 41)",
+      },
+      green01: "#00f260",
+      green02: "#64f38c",
+      blue01: "#0575e6",
+      gray01: "#999"
+    },
   },
 };
 
