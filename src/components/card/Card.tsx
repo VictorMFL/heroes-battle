@@ -1,4 +1,5 @@
 import * as S from "./styles";
+import { useBattleContext } from "@/context/battle/useBattle";
 
 interface HeroProps {
   img: string;
@@ -9,6 +10,7 @@ interface HeroProps {
   power: number;
   speed: number;
   strength: number;
+  id: number;
 }
 
 const Card = ({
@@ -20,7 +22,10 @@ const Card = ({
   power,
   speed,
   strength,
+  id,
 }: HeroProps) => {
+  const { HeroPreparationForBattle, removeHeroOfBattle } = useBattleContext();
+
   return (
     <S.Card>
       <S.Content>
@@ -81,7 +86,8 @@ const Card = ({
                 </S.Title>
               </S.ContainerTitle>
               <S.CardFooter>
-                <S.Yes>Sim </S.Yes> | <S.No> Não</S.No>
+                <S.Yes onClick={() => HeroPreparationForBattle(id)}>Sim </S.Yes>
+                | <S.No onClick={() => removeHeroOfBattle(id)}> Não</S.No>
               </S.CardFooter>
             </S.Description>
           </S.FrontContent>

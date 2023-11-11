@@ -61,6 +61,7 @@ const Header = () => {
                   speed={hero.powerstats.speed}
                   strength={hero.powerstats.strength}
                   intelligence={hero.powerstats.intelligence}
+                  id={hero.id}
                 />
               );
             })}

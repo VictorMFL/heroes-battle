@@ -1,5 +1,6 @@
 "use client";
 
+import { BattleProvider } from "@/context/battle/useBattle";
 import { HeroesDataProvider } from "@/context/data/useHeroesData";
 import { PaginationProvider } from "@/context/pagination/usePagination";
 import { ProviderStyle } from "@/styles/Theme";
@@ -9,7 +10,9 @@ const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <ProviderStyle>
       <HeroesDataProvider>
-        <PaginationProvider>{children}</PaginationProvider>
+        <PaginationProvider>
+          <BattleProvider>{children}</BattleProvider>
+        </PaginationProvider>
       </HeroesDataProvider>
     </ProviderStyle>
   );

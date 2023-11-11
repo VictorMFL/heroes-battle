@@ -4,6 +4,7 @@ import * as S from "./styles";
 import Card from "@/components/card/Card";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
+import Battle from "@/components/battle/Battle";
 import { useHeroesDataContext } from "@/context/data/useHeroesData";
 import { usePaginationContext } from "@/context/pagination/usePagination";
 
@@ -26,10 +27,12 @@ export default function Home() {
             speed={hero.powerstats.speed}
             strength={hero.powerstats.strength}
             intelligence={hero.powerstats.intelligence}
+            id={hero.id}
           />
         ))}
       </S.Container>
       
+      <Battle />
       <Footer />
     </>
   );
