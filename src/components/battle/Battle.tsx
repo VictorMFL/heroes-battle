@@ -4,10 +4,12 @@ import * as S from "./styles";
 import { useBattleContext } from "@/context/battle/useBattle";
 import { useState, useEffect } from "react";
 import Card from "../card/Card";
+import AlertMessage from "../alertMessage/AlertMessage";
 
 const Battle = () => {
   const [open, setOpen] = useState(false);
   const [winner, setWinner] = useState<string | null>(null);
+  const [error, setError] = useState<boolean>(false);
 
   const { battle } = useBattleContext();
 
@@ -16,7 +18,7 @@ const Battle = () => {
 
   const battleWinner = () => {
     if (battle.length < 2) {
-      alert("Selecione mais um personagem para acontecer a luta");
+      setError(true);
     } else {
       const totalPower1 = Object.values(battle[0].powerstats).reduce(
         (a, b) => a + b,
@@ -36,6 +38,14 @@ const Battle = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(false);
+      }, 4000);
+    }
+  }, [error]);
 
   useEffect(() => {
     if (battle.length === 1) {
@@ -95,6 +105,12 @@ const Battle = () => {
             <p>O resultado é: {winner}</p>
           ) : (
             <p>O vencedor é: {winner}</p>
+          )}
+          {error && (
+            <AlertMessage
+              title="error"
+              description="Selecione mais um personagem para acontecer a luta."
+            />
           )}
         </S.Container>
       </Modal>

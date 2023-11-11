@@ -1,17 +1,25 @@
 import { SuperHeroDataProps } from "@/interface/interface";
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 import { useHeroesDataContext } from "../data/useHeroesData";
 
 export type BattleContextProps = {
   battle: SuperHeroDataProps[];
   HeroPreparationForBattle: (id: number) => void;
   removeHeroOfBattle: (id: number) => void;
+  error: boolean;
 };
 
 export const BattleContext = createContext({} as BattleContextProps);
 
 export const BattleProvider = ({ children }: { children: ReactNode }) => {
   const [battle, setBattle] = useState<SuperHeroDataProps[]>([]);
+  const [error, setError] = useState<boolean>(false);
 
   const { data } = useHeroesDataContext();
 
@@ -21,7 +29,7 @@ export const BattleProvider = ({ children }: { children: ReactNode }) => {
     if (battle.length < 2) {
       setBattle((battle) => [...battle, ...filteredHero]);
     } else {
-      alert("Você só pode ter 2 heróis na batalha de cada vez.");
+      setError(true);
     }
   };
 
@@ -31,9 +39,17 @@ export const BattleProvider = ({ children }: { children: ReactNode }) => {
     setBattle(filteredHero);
   };
 
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(false);
+      }, 4000);
+    }
+  }, [error]);
+
   return (
     <BattleContext.Provider
-      value={{ battle, HeroPreparationForBattle, removeHeroOfBattle }}
+      value={{ battle, HeroPreparationForBattle, removeHeroOfBattle, error }}
     >
       {children}
     </BattleContext.Provider>

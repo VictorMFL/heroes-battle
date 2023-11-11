@@ -7,11 +7,16 @@ import Header from "@/components/header/Header";
 import Battle from "@/components/battle/Battle";
 import { useHeroesDataContext } from "@/context/data/useHeroesData";
 import { usePaginationContext } from "@/context/pagination/usePagination";
+import { useBattleContext } from "@/context/battle/useBattle";
+import AlertMessage from "@/components/alertMessage/AlertMessage";
 
 export default function Home() {
-  const { data } = useHeroesDataContext();
+  const { data } = useHeroesDataContext(); // Dados da API
 
   const { visibleCount, initialHero } = usePaginationContext(); // Controla os heróis que vão ser mostrados
+
+  const {error} = useBattleContext() //Exibe uma mensagem de erro caso já tenha 2 personagens preparados para lutar
+
   return (
     <>
       <Header />
@@ -34,6 +39,8 @@ export default function Home() {
       
       <Battle />
       <Footer />
+
+      {error && <AlertMessage title="warning" description="Você já tem 2 personagem prontos para a luta." />}
     </>
   );
 }
