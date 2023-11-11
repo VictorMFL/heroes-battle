@@ -26,17 +26,18 @@ export const OpenModal = styled.button`
   align-items: center;
   justify-content: center;
   color: #e8e8e8;
-  background-color: #212121;
+  background-color: ${(props) => props.theme.colors.background};
   width: 70px;
   height: 70px;
   font-size: 24px;
   text-transform: uppercase;
-  border: 2px solid #212121;
+  border: 2px solid ${(props) => props.theme.colors.background};
   border-radius: 50%;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.15), 2px 2px 2px rgba(0, 0, 0, 0.1),
-    -3px -3px 2px rgba(255, 255, 255, 0.05),
-    -2px -2px 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 5px 5px 2px ${(props) => props.theme.colors.black01},
+    2px 2px 2px ${(props) => props.theme.colors.black02},
+    -3px -3px 2px ${(props) => props.theme.colors.blsck03},
+    -2px -2px 1px ${(props) => props.theme.colors.blsck03};
   overflow: hidden;
   cursor: pointer;
 
@@ -55,7 +56,7 @@ export const OpenModal = styled.button`
   &::before {
     content: "";
     position: absolute;
-    background-color: #e8e8e8;
+    background-color: ${(props) => props.theme.colors.white02};
     width: 150%;
     height: 150%;
     left: 0%;
@@ -99,18 +100,20 @@ export const VS = styled.span`
 `;
 
 export const Button = styled.button`
-  color: #ecf0f1;
+  color: ${(props) => props.theme.colors.buttonOfBattle.white01};
   font-size: 17px;
-  background-color: #e67e22;
-  border: 1px solid #f39c12;
+  background-color: ${(props) => props.theme.colors.buttonOfBattle.orange01};
+  border: 1px solid ${(props) => props.theme.colors.buttonOfBattle.orange02};
   border-radius: 5px;
   padding: 10px;
-  box-shadow: 0px 6px 0px #d35400;
+  box-shadow: 0px 6px 0px
+    ${(props) => props.theme.colors.buttonOfBattle.orange03};
   transition: all 0.1s;
   cursor: pointer;
 
   &:active {
-    box-shadow: 0px 2px 0px #d35400;
+    box-shadow: 0px 2px 0px
+      ${(props) => props.theme.colors.buttonOfBattle.orange03};
     position: relative;
     top: 2px;
   }

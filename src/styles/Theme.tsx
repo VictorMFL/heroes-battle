@@ -5,6 +5,7 @@ const theme = {
   colors: {
     white: "#fff",
     white01: "#ffffff88",
+    white02: "#e8e8e8",
     black: "#000",
     black01: "#000000ee",
     black02: "#00000055",
@@ -27,7 +28,13 @@ const theme = {
       green01: "#00f260",
       green02: "#64f38c",
       blue01: "#0575e6",
-      gray01: "#999"
+      gray01: "#999",
+    },
+    buttonOfBattle: {
+      orange01: "#e67e22",
+      orange02: "#f39c12",
+      orange03: "#d35400",
+      white01: "#ecf0f1",
     },
   },
 };
