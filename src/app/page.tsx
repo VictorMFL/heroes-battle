@@ -10,15 +10,17 @@ import { usePaginationContext } from "@/context/pagination/usePagination";
 import { useBattleContext } from "@/context/battle/useBattle";
 import AlertMessage from "@/components/alertMessage/AlertMessage";
 import Loader from "@/components/loader/Loader";
+import ErrorRequest from "@/components/errorRequest/ErrorRequest";
 
 export default function Home() {
-  const { data } = useHeroesDataContext(); // Dados da API
+  const { data, errorRequest, loading } = useHeroesDataContext(); // Dados da API
 
   const { visibleCount, initialHero } = usePaginationContext(); // Controla os heróis que vão ser mostrados
 
   const { error } = useBattleContext(); //Exibe uma mensagem de erro caso já tenha 2 personagens preparados para lutar
 
-  if (data.length === 0) return <Loader />;
+  if (errorRequest) return <ErrorRequest errorName={errorRequest} />;
+  if (loading) return <Loader />;
   return (
     <>
       <Header />
@@ -38,7 +40,7 @@ export default function Home() {
           />
         ))}
       </S.Container>
-      
+
       <Battle />
       <Footer />
 
