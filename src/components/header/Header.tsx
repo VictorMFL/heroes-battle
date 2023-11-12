@@ -5,15 +5,16 @@ import * as S from "./styles";
 import { useHeroesDataContext } from "@/context/data/useHeroesData";
 import Card from "../card/Card";
 
-import { debounce } from 'lodash';
-
+import { debounce } from "lodash";
 
 const Header = () => {
   const [search, setSearch] = useState<string>("");
 
   const { data } = useHeroesDataContext();
 
-  const debouncedSearch = useRef(debounce((query) => setSearch(query), 500)).current;
+  const debouncedSearch = useRef(
+    debounce((query) => setSearch(query), 500)
+  ).current;
 
   const handleSearchChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     debouncedSearch(target.value);
