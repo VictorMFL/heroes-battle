@@ -69,6 +69,9 @@ const Battle = () => {
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
         <S.Container>
+          <S.CloseModal onClick={handleClose}>
+            <S.Icon>❌</S.Icon>
+          </S.CloseModal>
           <S.ContainerBattle>
             <Card
               img={battle[0].images.sm}

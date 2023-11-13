@@ -8,6 +8,24 @@ export const Header = styled.header`
   padding: 2rem 3rem;
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.white};
+
+  @media (max-width: 600px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+`;
+
+export const Title = styled.h1`
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -16,6 +34,10 @@ export const Form = styled.form`
   align-items: center;
   position: relative;
   max-width: 190px;
+
+  @media (max-width: 420px) {
+    max-width: 90px;
+  }
 `;
 
 export const Input = styled.input`
@@ -46,6 +68,16 @@ export const Input = styled.input`
   &:focus::placeholder {
     color: ${(props) => props.theme.colors.input.gray01};
   }
+
+  @media (max-width: 420px) {
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
 `;
 
 export const Icon = styled.svg`
@@ -70,4 +102,9 @@ export const SearchResult = styled.div`
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
   place-items: center;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
 `;

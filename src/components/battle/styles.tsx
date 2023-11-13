@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Card } from "../card/styles";
 
 const shakeBack = keyframes`
   0% {
@@ -18,6 +19,11 @@ export const Notification = styled.div`
   position: fixed;
   bottom: 3rem;
   right: 3rem;
+
+  @media (max-width: 700px) {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
 `;
 
 export const OpenModal = styled.button`
@@ -64,7 +70,23 @@ export const OpenModal = styled.button`
     transform: translate(-100%, 100%) rotate(45deg);
     border-radius: 15px;
   }
+
+  @media (max-width: 700px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
+
+export const CloseModal = styled(OpenModal)`
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+
+  @media (max-width: 700px) {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+`
 
 export const Icon = styled.span`
   position: relative;
@@ -85,6 +107,15 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 970px) {
+    width: 100%;  
+
+    /* Diminui a largura do card */
+    ${Card} {
+      width: 140px;
+    }
+  }
 `;
 
 export const ContainerBattle = styled.div`
@@ -92,6 +123,10 @@ export const ContainerBattle = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media(max-width: 500px) {
+    
+  }
 `;
 
 export const VS = styled.span`

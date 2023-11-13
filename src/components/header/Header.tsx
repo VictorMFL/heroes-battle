@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <S.Header>
-      <h1>Batalha de Heróis</h1>
+      <S.Title>Batalha de Heróis</S.Title>
       <S.Form onSubmit={submitSearch}>
         <S.Icon viewBox="0 0 24 24" aria-hidden="true" type="submit">
           <g>

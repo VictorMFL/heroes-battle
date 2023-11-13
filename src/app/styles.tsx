@@ -9,4 +9,13 @@ export const Container = styled.main`
   gap: 2rem;
   place-items: center;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: 660px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 445px) {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
 `;

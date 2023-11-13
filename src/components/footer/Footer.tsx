@@ -31,6 +31,12 @@ const Footer = () => {
           page={page}
           onChange={handleChange}
           onClick={scrollToTop}
+          sx={{
+            '.MuiPaginationItem-root': {
+              fontSize: ['0.7rem', '1rem'], // ajusta o tamanho da fonte com base no breakpoint
+              margin: '0 2px', // adiciona margem para evitar sobreposição em telas pequenas
+            }
+          }}
         />
       </Stack>
     </S.Footer>
